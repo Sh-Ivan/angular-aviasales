@@ -1,0 +1,11 @@
+<aside>
+  <span class="aside-header">КОЛИЧЕСТВО ПЕРЕСАДОК</span>
+
+  <div *ngFor="let filter of allFilters | keyvalue" class="filter">
+    <label>
+      <img [attr.src]='filters[filter.key]? "../assets/CheckboxOn.svg": "../assets/CheckboxOff.svg"' alt="Checkobox Icon" name=[(filter.key] />
+      {{filter.value}}
+    </label>
+  </div>
+
+</aside>

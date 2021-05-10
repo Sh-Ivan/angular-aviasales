@@ -4,8 +4,7 @@
   <FiltersPanel :filters="filters" :setFilters="setFilters" />
   <MainPanel :sorting="sorting" :tickets="sortedTickets" :isLoading="isLoading" v-on:changeSorting="changeSorting" />
   -->
-  Sorting: {{state.sorting}}
   <app-header> </app-header>
-  <p>Filters Panel</p>
-  <p>Main Panel</p>
+  <filters-panel [filters]="state.filters"></filters-panel>
+  <main-panel></main-panel>
 </div>
