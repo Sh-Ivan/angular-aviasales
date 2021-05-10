@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+div.main {
+  width: 960px;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: #f3f7fa;
+  padding: 0 103px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
