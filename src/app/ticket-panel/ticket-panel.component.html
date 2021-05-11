@@ -1,1 +1,9 @@
-<p>ticket-panel works!</p>
+<preloader *ngIf="isLoading"></preloader>
+<empty-card *ngIf="tickets.length === 0"></empty-card>
+<div>
+  <ticket
+    *ngFor="let ticket of tickets.slice(0, numberTickets)"
+    [ticket]="ticket"
+  ></ticket>
+  <button (click)="addNumberTickets()">Показать еще 5 билетов!</button>
+</div>

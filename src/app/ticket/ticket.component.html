@@ -1,1 +1,22 @@
-<p>ticket works!</p>
+<div class="card">
+  <div class="header">
+    <span class="price">{{ price }} Р</span>
+    <img [attr.src]="logoURL + ticket.carrier + '.png'" alt="Logo" />
+  </div>
+
+  <div *ngFor="let segment of ticket.segments; let index = index">
+    <div class="row row-header">
+      <span>{{ segment.origin }} - {{ segment.destination }}</span>
+      <span>В пути</span>
+      <span>{{ segmentData[index].stops }}</span>
+    </div>
+    <div class="row row-data">
+      <span
+        >{{ segmentData[index].startTime }} -
+        {{ segmentData[index].endTime }}</span
+      >
+      <span>{{ segmentData[index].duration }}</span>
+      <span>{{ segment.stops.join(", ") }}</span>
+    </div>
+  </div>
+</div>

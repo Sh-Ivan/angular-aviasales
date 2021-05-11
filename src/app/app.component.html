@@ -5,6 +5,14 @@
   <MainPanel :sorting="sorting" :tickets="sortedTickets" :isLoading="isLoading" v-on:changeSorting="changeSorting" />
   -->
   <app-header> </app-header>
-  <filters-panel [filters]="state.filters"></filters-panel>
-  <main-panel></main-panel>
+  <filters-panel
+    [filters]="state.filters"
+    [setFilters]="setFilters"
+  ></filters-panel>
+  <main-panel
+    [sorting]="state.sorting"
+    [tickets]="sortedTickets"
+    [isLoading]="state.isLoading"
+    [changeSorting]="changeSorting"
+  ></main-panel>
 </div>

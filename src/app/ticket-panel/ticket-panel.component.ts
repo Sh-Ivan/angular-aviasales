@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-ticket-panel',
+  selector: 'ticket-panel',
   templateUrl: './ticket-panel.component.html',
-  styleUrls: ['./ticket-panel.component.css']
+  styleUrls: ['./ticket-panel.component.css'],
 })
 export class TicketPanelComponent implements OnInit {
+  @Input() tickets;
+  @Input() isLoading: boolean;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+  numberTickets = 5;
 
+  addNumberTickets = function () {
+    this.numberTickets += 5;
+    console.log(this.numberTickets);
+  };
 }

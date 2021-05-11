@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-sorting-panel',
+  selector: 'sorting-panel',
   templateUrl: './sorting-panel.component.html',
-  styleUrls: ['./sorting-panel.component.css']
+  styleUrls: ['./sorting-panel.component.css'],
 })
 export class SortingPanelComponent implements OnInit {
+  @Input() sorting: string;
+  @Input() changeSorting;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  sortNameMap = [
+    ['cheapest', 'Самый дешевый'],
+    ['fastest', 'Самый быстрый'],
+    ['optimal', 'Оптимальный'],
+  ];
 }

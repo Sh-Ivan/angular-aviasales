@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-preloader',
+  selector: 'preloader',
   templateUrl: './preloader.component.html',
-  styleUrls: ['./preloader.component.css']
+  styleUrls: ['./preloader.component.css'],
 })
 export class PreloaderComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

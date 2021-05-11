@@ -1,1 +1,7 @@
-<p>main-panel works!</p>
+<main>
+  <sorting-panel
+    [sorting]="sorting"
+    [changeSorting]="changeSorting"
+  ></sorting-panel>
+  <ticket-panel [tickets]="tickets" [isLoading]="isLoading"></ticket-panel>
+</main>
