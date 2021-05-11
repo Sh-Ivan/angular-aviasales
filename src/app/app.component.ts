@@ -1,13 +1,14 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component} from '@angular/core';
 import filterTickets from '../utils/filterTickets';
 import sortTickets from '../utils/sortTickets';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent  {
   state = {
     searchId: null,
     tickets: [
@@ -40,43 +41,44 @@ export class AppComponent {
             destination: 'SPB',
             date: 12937,
             stops: ['EKT', 'TMN'],
-            duration: 202,
+            duration: 102,
           },
           {
             origin: 'MOW',
             destination: 'SPB',
             date: 12937,
             stops: ['EKT', 'TMN'],
-            duration: 202,
+            duration: 102,
           },
         ],
       },
     ],
-    filters: {
-      all: false,
-      direct: true,
-      one: true,
-      two: true,
-      three: false,
-    },
-    sorting: 'cheapest',
+    
     isLoading: false,
     counterError: 0,
     url: 'https://front-test.beta.aviasales.ru',
   };
 
-  ngOnChanges(changes: ) {
-    
-  };
-  get filteredTickets() {
-    return filterTickets(this.state.tickets, this.state.filters);
-  }
-  get sortedTickets() {
-    return sortTickets(this.filteredTickets, this.state.sorting);
+  filters = {
+      all: false,
+      direct: true,
+      one: true,
+      two: true,
+      three: false,
+    };
+    sorting = 'cheapest';
+
+    filteredTickets = [];
+    sortedTickets = [];
+
+  ngOnInit(): void {
+   this.filteredTickets = filterTickets(this.state.tickets, this.filters);
+    this.sortedTickets = sortTickets(this.filteredTickets, this.sorting); 
   }
 
   changeSorting = function (event: any) {
     this.sorting = event.target.name;
+    this.sortedTickets = sortTickets(this.filteredTickets, this.sorting);
   };
 
   setFilters = function (filter) {
@@ -102,6 +104,8 @@ export class AppComponent {
       this.filters[filter] = !this.filters[filter];
       this.filters.all = false;
     }
+    this.filteredTickets = filterTickets(this.state.tickets, this.filters);
+    this.sortedTickets = sortTickets(this.filteredTickets, this.sorting);
   };
 }
 

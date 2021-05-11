@@ -4,7 +4,7 @@
   <div
     *ngFor="let filter of allFilters"
     class="filter"
-    (click)="setFilters(filter[0])"
+    (click)="changeFilter(filter[0])"
   >
     <label>
       <img

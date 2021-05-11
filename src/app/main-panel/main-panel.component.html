@@ -1,7 +1,7 @@
 <main>
   <sorting-panel
     [sorting]="sorting"
-    [changeSorting]="changeSorting"
+    (changeSorting)="handleSorting($event)"
   ></sorting-panel>
   <ticket-panel [tickets]="tickets" [isLoading]="isLoading"></ticket-panel>
 </main>

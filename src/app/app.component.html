@@ -6,13 +6,13 @@
   -->
   <app-header> </app-header>
   <filters-panel
-    [filters]="state.filters"
-    [setFilters]="setFilters"
+    [filters]="filters"
+    (setFilters)="setFilters($event)"
   ></filters-panel>
   <main-panel
-    [sorting]="state.sorting"
+    [sorting]="sorting"
     [tickets]="sortedTickets"
     [isLoading]="state.isLoading"
-    [changeSorting]="changeSorting"
+    (changeSorting)="changeSorting($event)"
   ></main-panel>
 </div>

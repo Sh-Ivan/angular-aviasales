@@ -1,17 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sorting-panel',
   templateUrl: './sorting-panel.component.html',
   styleUrls: ['./sorting-panel.component.css'],
 })
-export class SortingPanelComponent implements OnInit {
+export class SortingPanelComponent  {
   @Input() sorting: string;
-  @Input() changeSorting;
+  @Output() changeSorting = new EventEmitter;
+
+  handleSorting = function(sort) {
+    this.changeSorting.emit(sort);
+  }
 
   constructor() {}
 
-  ngOnInit(): void {}
+
 
   sortNameMap = [
     ['cheapest', 'Самый дешевый'],

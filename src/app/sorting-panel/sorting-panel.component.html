@@ -3,7 +3,7 @@
     *ngFor="let sorts of sortNameMap"
     [attr.name]="sorts[0]"
     [attr.class]="sorting === sorts[0] ? 'selected' : ''"
-    (click)="changeSorting($event)"
+    (click)="handleSorting($event)"
   >
     {{ sorts[1] }}
   </button>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'main-panel',
@@ -9,7 +9,11 @@ export class MainPanelComponent implements OnInit {
   @Input() sorting: string;
   @Input() tickets;
   @Input() isLoading: boolean;
-  @Input() changeSorting;
+  @Output() changeSorting = new EventEmitter;
+
+  handleSorting = function(sort) {
+    this.changeSorting.emit(sort);
+  }
 
   constructor() {}
 

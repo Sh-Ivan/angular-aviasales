@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'filters-panel',
@@ -7,7 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FiltersPanelComponent implements OnInit {
   @Input() filters;
-  @Input() setFilters;
+  @Output() setFilters = new EventEmitter;
+
+  changeFilter = function(filter) {
+    this.setFilters.emit(filter);
+  }
 
   constructor() {}
 
